@@ -37,13 +37,12 @@ class FoodTruckListFragment : Fragment() {
                     call: Call<List<FoodTruck>>,
                     response: Response<List<FoodTruck>>
                 ) {
-                    recyclerViewAdapter.updateItems(response.body()!!)
-
                     lifecycleScope.launch {
                         db.foodtruckDao().removeAllTruck()
                         db.foodtruckDao().addTrucks(response.body()!!)
                         Log.d("remove&add new trucks", "DONE")
                     }
+                    recyclerViewAdapter.updateItems(response.body()!!)
                 }
 
                 override fun onFailure(call: Call<List<FoodTruck>>, t: Throwable) {

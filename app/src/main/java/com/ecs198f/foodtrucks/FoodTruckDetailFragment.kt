@@ -82,7 +82,7 @@ class FoodTruckDetailFragment : Fragment() {
                             ) {
 
                                 list2 = response.body()!!
-                                tabStateAdapter = TabStateAdapter(this@FoodTruckDetailFragment, list1, list2)
+                                tabStateAdapter = TabStateAdapter(this@FoodTruckDetailFragment, list1, list2, it.id)
                                 viewPager = view.findViewById(R.id.pager)
                                 viewPager.adapter = tabStateAdapter
 

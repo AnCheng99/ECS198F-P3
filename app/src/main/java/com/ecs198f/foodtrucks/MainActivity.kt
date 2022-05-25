@@ -2,6 +2,7 @@ package com.ecs198f.foodtrucks
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.lifecycleScope
 import androidx.room.Room
 import com.ecs198f.foodtrucks.databinding.ActivityMainBinding
@@ -65,9 +66,7 @@ class MainActivity : AppCompatActivity() {
                 trucks = FoodTruckDao.listAllFoodTrucks()
             }
         }
-
-
-
+        Log.d("Database initialization", "Completed")
         title = "Food Trucks"
     }
 
@@ -93,5 +92,6 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
 
 }

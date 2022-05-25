@@ -1,10 +1,7 @@
 package com.ecs198f.foodtrucks
 
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface FoodTruckService {
     @GET("food-trucks")
@@ -17,5 +14,5 @@ interface FoodTruckService {
     fun listFoodReviews(@Path("truckId") truckId: String): Call<List<FoodReview>>
 
     @POST("food-trucks/{truckId}/reviews")
-    fun createFoodReviews(@Path("truckId") truckId: String, @Body FoodReview: FoodReview):Call<Unit>
+    fun createFoodReviews(@Path("truckId") truckId: String, @Body FoodReview: FoodReviewPost, @Header("Authorization") Authorization: String):Call<Unit>
 }
